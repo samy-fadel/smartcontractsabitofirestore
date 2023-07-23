@@ -54,7 +54,8 @@ async function retrieveSmartContracts() {
           // Get the JSON ABI for the smart contract
           //const contract = new web3.eth.Contract([], address); // Provide an empty ABI here, we'll fetch the real ABI next
           //const abi = await contract.methods._jsonInterface; // Fetch the JSON ABI
-          const abi = await web3.eth.contract(address).getABI();
+          const contract = new web3.eth.Contract(address);
+          const abi = contract.abi;
 
           console.log("JSON ABI:", abi);
 
